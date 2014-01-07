@@ -1,0 +1,88 @@
+
+.d-no-underline,
+.d-no-u {
+	text-decoration: none;
+}
+
+.d-underline,
+.d-u {
+	text-decoration: underline;
+}
+
+.d-left {
+	float: left;
+}
+
+.d-right {
+	float: right;
+}
+
+.d-hide       { display: none; }
+
+//.d-first      { margin-left:0;   padding-left:0;   }
+//.d-last       { margin-right:0;  padding-right:0;  }
+//.d-top        { margin-top:0;    padding-top:0;    }
+//.d-bottom     { margin-bottom:0; padding-bottom:0; }
+
+.d-before-list { margin-bottom: (@line-height-computed / 2); }
+
+.d-muted {
+	color: @muted-color;
+}
+
+// Hide from screenreaders and browsers
+.d-hidden {
+ 	display: none !important;
+  	visibility: hidden !important;
+}
+
+.d-sr-only {
+	.d-screen-reader();
+}
+
+.d-list-unstyled {
+	.d-unstyle-list();
+}
+
+.d-list-unstyled-nested {
+	.d-unstyle-list-nested();
+}
+
+
+// Tables
+
+.d-table {
+	.d-table-base();
+}
+
+.d-table-condensed {
+	.d-table-base > .condensed();
+}
+
+.d-table-bordered {
+	.d-table-base > .bordered();
+}
+
+.d-table-hover {
+	.d-table-base > .hover();
+}
+
+.d-table-striped {
+	.d-table-base > .striped();
+}
+
+// Responsive tables
+// Wrap your tables in `.d-table-responsive` and we'll make them mobile friendly by enabling horizontal scrolling.
+@media (max-width: @table-responsive-screen) {
+	.d-table-responsive {
+		.d-table-base > .responsive-container();
+
+		> .d-table {
+			.d-table-base > .responsive-table();
+		}
+
+		> .d-table-bordered {
+			.d-table-base > .responsive-table-bordered();
+		}
+	}
+}

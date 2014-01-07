@@ -1,0 +1,92 @@
+
+// Headings, body text, lists, code, and more for a versatile and durable typography system
+// ----------------------------------------------------------------------------------------
+
+// BODY TEXT
+
+body {
+	font-family: @font-family-base;
+	font-size: @font-size-base;
+	line-height: @line-height-base;
+	color: @text-color;
+	background-color: @body-bg;
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+p {
+	margin: 0 0 (@line-height-computed / 2);
+}
+
+small {
+	font-size: 85%;
+}
+
+cite {
+	font-style: normal; // Undo browser default styling
+}
+
+img {
+	vertical-align: middle;
+}
+
+
+// HEADINGS
+
+h1, h2, h3, h4, h5, h6,
+.d-h1, .d-h2, .d-h3, .d-h4, .d-h5, .d-h6 {
+	.d-h();
+}
+
+h1, .d-h1,
+h2, .d-h2,
+h3, .d-h3 {
+	.d-h1-3();
+}
+
+h4, .d-h4,
+h5, .d-h5,
+h6, .d-h6 {
+	.d-h4-6();
+}
+
+h1, .d-h1 { .d-h1(0); }
+h2, .d-h2 { .d-h2(0); }
+h3, .d-h3 { .d-h3(0); }
+h4, .d-h4 { .d-h4(0); }
+h5, .d-h5 { .d-h5(0); }
+h6, .d-h6 { .d-h6(0); }
+
+
+// LINKS
+
+a {
+	text-decoration: @link-decoration;
+	.d-link-color(@link-color, @link-hover-color, @link-visited-color, @link-active-color);
+
+	&:hover {
+		text-decoration: @link-hover-decoration;
+	}
+
+	&:focus {
+		.d-tab-focus();
+	}
+}
+
+
+// TABLES
+
+table {
+	max-width: 100%;
+}
+th {
+	text-align: left;
+}

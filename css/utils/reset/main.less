@@ -1,0 +1,45 @@
+
+html {
+	font-size: 100.01%;
+	overflow-y: scroll;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// Reset the box-sizing
+*,
+*:before,
+*:after {
+	.d-box-sizing(border-box);
+}
+
+button, input, select, textarea {
+	vertical-align: middle;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	vertical-align: baseline;
+}
+
+textarea {
+	resize: none;
+}
+
+// Focus states
+:focus 					 { outline: 0; }
+input::-moz-focus-inner  { border: 0; }
+button::-moz-focus-inner { border: 0; }
+
+// Img border in a's and image quality
+img {
+	height: auto;
+	max-width: 100%;
+	-ms-interpolation-mode: bicubic;
+}
+
+// Lists
+ol, ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

@@ -1,0 +1,44 @@
+
+// Unordered and Ordered lists
+ul,
+ol {
+	margin: 0 0 (@line-height-computed / 2) 25px;
+
+	ul,
+	ol {
+		margin-bottom: 0;
+	}
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+ul, ol {
+	&.d-list-unstyled {
+		.d-unstyle-list();
+	}
+
+	&.d-list-unstyled-nested {
+		.d-unstyle-list-nested();
+	}
+}
+
+// Description Lists
+dl {
+	margin-bottom: @line-height-computed;
+}
+dt,
+dd {
+	line-height: @line-height-base;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-left: 0; // Undo browser default
+}

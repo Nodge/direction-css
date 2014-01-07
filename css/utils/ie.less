@@ -1,0 +1,13 @@
+
+.d-filter(@filter) when (@use-IE-filters = 1) {
+	filter: @filter;
+}
+
+.d-ms-filter(@filter) when (@use-IE-filters = 1) {
+	-ms-filter: @filter;
+}
+
+// Reset filters for IE
+.d-reset-filter() when (@use-IE-filters = 1) {
+  	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}

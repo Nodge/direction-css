@@ -1,0 +1,131 @@
+
+.d-legend {
+	.d-form > .legend();
+}
+
+.d-label {
+	.d-form > .label();
+}
+
+.d-output {
+	.d-form > .output();
+}
+
+.d-required {
+	.d-form > .required();
+}
+
+.d-form-control {
+	.d-form > .control();
+
+	&:focus {
+		.d-form > .control-focus();
+	}
+
+	textarea& {
+		.d-form > .textarea();
+	}
+}
+
+.d-radio,
+.d-checkbox {
+	.d-form > .checkbox-container();
+	.d-form > .checkbox-disabled-state();
+
+	label {
+		.d-form > .checkbox-label();
+	}
+}
+
+.d-radio input[type="radio"],
+.d-radio-inline input[type="radio"],
+.d-checkbox input[type="checkbox"],
+.d-checkbox-inline input[type="checkbox"] {
+	.d-form > .checkbox-input();
+}
+
+.d-radio + .d-radio,
+.d-checkbox + .d-checkbox {
+	margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
+}
+
+.d-radio-inline,
+.d-checkbox-inline {
+	.d-form > .checkbox-container-inline();
+	.d-form > .checkbox-disabled-state();
+}
+
+.d-radio-inline + .d-radio-inline,
+.d-checkbox-inline + .d-checkbox-inline {
+	margin-top: 0;
+	margin-left: 10px; // space out consecutive inline controls
+}
+
+
+// Form control feedback states
+//
+// Apply contextual and semantic states to individual form controls.
+
+.d-form-control-validation(@text-color: #555; @border-color: #ccc; @background-color: #f5f5f5) {
+	// Color the label and help text
+	.d-help-block,
+	.d-label,
+	.d-radio,
+	.d-checkbox,
+	.d-radio-inline,
+	.d-checkbox-inline  {
+		color: @text-color;
+	}
+
+	// Set the border and box shadow on specific inputs to match
+	.d-form-control {
+		border-color: @border-color;
+		.d-box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+
+		&:focus {
+			border-color: darken(@border-color, 10%);
+			@shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@border-color, 20%);
+			.d-box-shadow(@shadow);
+		}
+	}
+
+	// Set validation states also for addons
+	/*.d-input-group-addon {
+		color: @text-color;
+		border-color: @border-color;
+		background-color: @background-color;
+	}*/
+}
+
+.d-form-warning {
+	.d-form-control-validation(@state-warning-text; @state-warning-text; @state-warning-bg);
+}
+
+.d-form-error {
+	.d-form-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
+}
+
+.d-form-success {
+	.d-form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
+}
+
+
+// Static form control text
+//
+// Apply class to a `p` element to make any string of text align with labels in
+// a horizontal form layout.
+.d-form-control-static {
+	margin-bottom: 0; // Remove default margin from `p`
+}
+
+
+// Help text
+//
+// Apply to any element you wish to create light text for placement immediately
+// below a form control. Use for general help, formatting, or instructional text.
+.d-help-block {
+	display: block; // account for any element using help-block
+	margin-top: 5px;
+	margin-bottom: 10px;
+	color: lighten(@text-color, 25%); // lighten the text some for contrast
+}

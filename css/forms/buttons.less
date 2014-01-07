@@ -1,0 +1,117 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core styles
+.d-btn {
+	display: inline-block;
+	margin-bottom: 0; // For input.btn
+	font-weight: @btn-font-weight;
+	text-align: center;
+	text-decoration: none; // reset <a> text decoration
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	border: 1px solid transparent;
+	white-space: nowrap;
+	.d-button > .size(@btn-padding-vertical; @btn-padding-horizontal; @font-size-base; @line-height-base; @btn-border-radius);
+	.d-user-select(none);
+
+	&:focus {
+		.d-tab-focus();
+	}
+
+	&:hover,
+	&:focus {
+		color: @btn-default-color;
+		text-decoration: none;
+	}
+
+	&:active,
+	&.d-btn-active {
+		outline: 0;
+		background-image: none;
+		.d-box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+	}
+
+	&.d-btn-disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: not-allowed;
+		pointer-events: none; // Future-proof disabling of clicks
+		.d-opacity(.65);
+		.d-box-shadow(none);
+	}
+}
+
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.d-btn-link {
+	color: @link-color;
+	font-weight: normal;
+	text-decoration: @link-decoration;
+	cursor: pointer;
+	border-radius: 0;
+
+	&,
+	&:active,
+	&[disabled],
+	fieldset[disabled] & {
+		background-color: transparent;
+		.d-box-shadow(none);
+	}
+
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: transparent;
+	}
+
+	&:hover,
+	&:focus {
+		color: @link-hover-color;
+		text-decoration: @link-hover-decoration;
+		background-color: transparent;
+	}
+
+	&[disabled],
+	fieldset[disabled] & {
+		&:hover,
+		&:focus {
+			color: @btn-link-disabled-color;
+			text-decoration: none;
+		}
+	}
+}
+
+// Block button
+// --------------------------------------------------
+
+.d-btn-block {
+	display: block;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+// Vertically space out multiple block buttons
+.d-btn-block + .d-btn-block {
+	margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	&.btn-block {
+		width: 100%;
+	}
+}

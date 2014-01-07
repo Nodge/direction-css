@@ -1,0 +1,173 @@
+
+// Border Radius, deprecated
+.d-border-radius(@radius) {
+	border-radius: @radius;
+}
+
+// Drop shadows
+.d-box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+            box-shadow: @shadow;
+}
+
+// Transitions
+.d-transition(@transition) {
+	-webkit-transition: @transition;
+            transition: @transition;
+}
+
+.d-transition-property(@transition-property) {
+  	-webkit-transition-property: @transition-property;
+            transition-property: @transition-property;
+}
+
+.d-transition-delay(@transition-delay) {
+	-webkit-transition-delay: @transition-delay;
+            transition-delay: @transition-delay;
+}
+
+.d-transition-duration(@transition-duration) {
+	-webkit-transition-duration: @transition-duration;
+            transition-duration: @transition-duration;
+}
+
+.d-transform-transition(@transition) {
+	-webkit-transition: -webkit-transform @transition;
+	   -moz-transition:    -moz-transform @transition;
+	     -o-transition:      -o-transform @transition;
+	        transition:         transform @transition;
+}
+
+// Transformations
+.d-transform(@transform) {
+	-webkit-transform: rotate(@transform);
+	    -ms-transform: rotate(@transform); // IE9+
+	        transform: rotate(@transform);
+}
+
+.d-rotate(@degrees) {
+	.d-transform(rotate(@degrees));
+}
+
+.d-scale(@ratio) {
+	.d-transform(scale(@ratio));
+}
+
+.d-translate(@x: 0, @y: 0) {
+	.d-transform(translate(@x, @y));
+}
+
+.d-translate3d(@x: 0, @y: 0, @z: 0) {
+	.d-transform(translate3d(@x, @y, @z));
+}
+
+.d-skew(@x: 0, @y: 0) {
+    .d-transform(translate(@x, @y));
+    .d-transform(skew(@x, @y));
+}
+
+.d-flipH() {
+	.d-transform(scaleX(-1));
+	.d-filter(FlipH);
+	.d-ms-filter("FlipH");
+}
+
+.d-transform-origin(@origin) {
+	-webkit-transform-origin: @origin;
+	   -moz-transform-origin: @origin;
+	        transform-origin: @origin;
+}
+
+// Animations
+.d-animation(@animation) {
+	-webkit-animation: @animation;
+            animation: @animation;
+}
+
+// Background clipping, deprecated
+// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
+.d-background-clip(@clip) {
+	background-clip: @clip;
+}
+
+// Background sizing, deprecated
+.d-background-size(@size) {
+	background-size: @size;
+}
+
+// Box sizing
+.d-box-sizing(@boxmodel) {
+	-webkit-box-sizing: @boxmodel;
+       -moz-box-sizing: @boxmodel;
+            box-sizing: @boxmodel;
+}
+
+// User select
+// For selecting text on the page
+.d-user-select(@select) {
+	-webkit-user-select: @select;
+       -moz-user-select: @select;
+	    -ms-user-select: @select; // IE10+
+         -o-user-select: @select;
+            user-select: @select;
+}
+
+// Resize anything
+.d-resizable(@direction: both) {
+	resize: @direction; // Options: horizontal, vertical, both
+	overflow: auto; // Safari fix
+}
+
+// CSS3 Content Columns
+.d-content-columns(@columnCount, @columnGap: @gridColumnGutter) {
+	-webkit-column-count: @columnCount;
+       -moz-column-count: @columnCount;
+            column-count: @columnCount;
+  	-webkit-column-gap: @columnGap;
+       -moz-column-gap: @columnGap;
+            column-gap: @columnGap;
+}
+
+// Optional hyphenation
+.d-hyphens(@mode: auto) {
+	word-wrap: break-word;
+	-webkit-hyphens: @mode;
+	   -moz-hyphens: @mode;
+	    -ms-hyphens: @mode; // IE10+
+	     -o-hyphens: @mode;
+	        hyphens: @mode;
+}
+
+// Opacity
+.d-opacity(@opacity) {
+ 	opacity: @opacity;
+	.d-filter(e(%("alpha(opacity=%d)", @opacity * 100)));
+}
+
+// Placeholder color
+.d-placeholder(@color) {
+	&.d-placeholder {
+		color: @color;
+	}
+
+	&:-moz-placeholder            { color: @color; } // Firefox 4-18
+	&::-moz-placeholder           { color: @color;   // Firefox 19+
+									opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
+	&:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+	&::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+}
+
+
+// Shortcuts to native css function names
+.border-radius(@radius)		{ .d-border-radius(@radius); }
+.box-shadow(@shadow)		{ .d-box-shadow(@shadow); }
+.transition(@transition)	{ .d-transition(@transition); }
+.transform(@t) 				{ .d-transform(@t); }
+.background-clip(@clip)		{ .d-background-clip(@clip); }
+.background-size(@size)		{ .d-background-size(@size); }
+.box-sizing(@boxmodel)		{ .d-box-sizing(@boxmodel); }
+.user-select(@select)		{ .d-user-select(@select); }
+.opacity(@opacity)			{ .d-opacity(@opacity); }
+.hyphens(@mode)				{ .d-hyphens(@mode); }
+.animation(@animation)		{ .d-animation(@animation); }
+.placeholder(@color)		{ .d-placeholder(@color); }

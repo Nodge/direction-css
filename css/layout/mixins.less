@@ -1,0 +1,96 @@
+
+.d-make-grid(@columns, @gutter-width, @float: 1) {
+
+	.d-container {
+		.d-grid > .make-container(@gutter-width);
+	}
+
+	.d-row {
+		.d-grid > .make-row(@gutter-width);
+	}
+
+	.d-grid > .make-columns(@columns, @gutter-width, @float);
+	.d-grid > .make(@columns, width, @float);
+	.d-grid > .make(@columns, pull, @float);
+	.d-grid > .make(@columns, push, @float);
+	.d-grid > .make(@columns, offset, @float);
+}
+
+.d-grid() {
+	// Centered container element
+	.make-container(@gutter-width) {
+		margin-right: auto;
+		margin-left: auto;
+		padding-left: (@gutter-width / 2);
+		padding-right: (@gutter-width / 2);
+		.d-clearfix();
+	}
+
+	// Creates a wrapper for a series of columns
+	.make-row(@gutter) {
+		margin-left:  (@gutter / -2);
+		margin-right: (@gutter / -2);
+		.d-clearfix();
+	}
+
+	.make-column(@gutter-width, @float: 1) {
+		position: relative;
+		.float();
+		// Prevent columns from collapsing when empty
+		min-height: 1px;
+		// Inner gutter via padding
+		padding-left:  (@gutter-width / 2);
+		padding-right: (@gutter-width / 2);
+
+		.float() when (@float = 1) { float: left; }
+		.float() when (@float = 0) { float: none; }
+	}
+
+	.make-columns(@columns, @gutter-width, @float: 1) {
+		// Common styles for all sizes of grid columns, widths 1-12
+		.col(@index) when (@index = 1) { // initial
+			@item: ~".d-col-@{index}";
+			.col((@index + 1), @item);
+		}
+		.col(@index, @list) when (@index =< @columns) { // general; "=<" isn't a typo
+			@item: ~".d-col-@{index}";
+			.col((@index + 1), ~"@{list}, @{item}");
+		}
+		.col(@index, @list) when (@index > @columns) { // terminal
+			@{list} {
+				.d-grid > .make-column(@gutter-width, @float);
+			}
+		}
+		.col(1); // kickstart it
+	}
+
+	.calc(@index, @columns, @type) when (@type = width) and (@index > 0) {
+		.d-col-@{index} {
+			width: percentage((@index / @columns));
+		}
+	}
+	.calc(@index, @columns, @type) when (@type = push) {
+		.d-col-push-@{index} {
+			left: percentage((@index / @columns));
+		}
+	}
+	.calc(@index, @columns, @type) when (@type = pull) {
+		.d-col-pull-@{index} {
+			right: percentage((@index / @columns));
+		}
+	}
+	.calc(@index, @columns, @type) when (@type = offset) {
+		.d-col-offset-@{index} {
+			margin-left: percentage((@index / @columns));
+		}
+	}
+
+	.make(@columns, @type, @float: 1) when (@float = 1) {
+		.loop(@index, @type) when (@index >= 0) {
+			.d-grid > .calc(@index, @columns, @type);
+			// next iteration
+			.loop((@index - 1), @type);
+		}
+		.loop(@columns, @type);
+	}
+}

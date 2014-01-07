@@ -1,0 +1,13 @@
+// For clearing floats like a boss h5bp.com/q
+.d-clearfix() {
+	&:before, &:after {
+    	display: table;
+    	content: "";
+		height: 0; // opera contenteditable fix
+		font: 0/0 a; // opera contenteditable fix
+	}
+
+  	&:after {
+    	clear: both;
+  	}
+}

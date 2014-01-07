@@ -1,0 +1,44 @@
+
+legend {
+	.d-form > .legend();
+}
+
+label {
+	.d-form > .label();
+}
+
+output {
+	.d-form > .output();
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+	.d-form > .control();
+
+	&:focus {
+		.d-form > .control-focus();
+	}
+}
+
+textarea {
+	.d-form > .textarea();
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	.d-form > .checkbox-disabled-state();
+}

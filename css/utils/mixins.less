@@ -1,0 +1,55 @@
+
+// Text overflow
+// Requires inline-block or block for proper styling
+.d-text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.d-hide-text() {
+	font-size: 1px;
+	text-indent: -9999em;
+}
+
+.d-retina(@path, @ext, @width: 0, @height: 0) {
+	background-image: url("@{path}.@{ext}");
+
+	@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   min--moz-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+	only screen and (        min-device-pixel-ratio: 2),
+	only screen and (                min-resolution: 192dpi),
+	only screen and (                min-resolution: 2dppx) {
+		background-image: url("@{path}@2x.@{ext}");
+		.size();
+	}
+
+	.size() when not (@width = 0), not (@height = 0) {
+		.background-size(@width @height);
+	}
+}
+
+// WebKit-style focus
+.d-tab-focus() {
+	// Default
+	outline: thin dotted #333;
+	// WebKit
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+.d-screen-reader() {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}

@@ -1,0 +1,88 @@
+
+// Note: layout works only with default classes
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.d-form-group {
+	margin-bottom: 15px;
+}
+
+
+.d-form-vertical {
+
+}
+
+// Inline forms
+//
+// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// forms begin stacked on extra small (mobile) devices and then go inline when
+// viewports reach <768px.
+//
+// Requires wrapping inputs and labels with `.form-group` for proper display of
+// default HTML form controls and our custom form controls (e.g., input groups).
+
+.d-form-inline {
+	// Inline-block all the things for "inline"
+	.d-form-group  {
+		display: inline-block;
+		margin-bottom: 0;
+		vertical-align: middle;
+	}
+
+	// In navbar-form, allow folks to *not* use `.form-group`
+	.d-form-control {
+		display: inline-block;
+	}
+
+	// Remove default margin on radios/checkboxes that were used for stacking, and
+	// then undo the floating of radios and checkboxes to match (which also avoids
+	// a bug in WebKit: https://github.com/twbs/bootstrap/issues/1969).
+	.d-radio,
+	.d-checkbox {
+		display: inline-block;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-left: 0;
+	}
+	.d-radio input[type="radio"],
+	.d-checkbox input[type="checkbox"] {
+		float: none;
+		margin-left: 0;
+	}
+}
+
+
+// Horizontal forms
+//
+// Horizontal forms are built on grid classes and allow you to create forms with
+// labels on the left and inputs on the right.
+
+.d-form-horizontal {
+
+	// Consistent vertical alignment of labels, radios, and checkboxes
+	.d-label,
+	.d-radio,
+	.d-checkbox,
+	.d-radio-inline,
+	.d-checkbox-inline {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: (@input-padding-vertical + 1); // Default padding plus a border
+	}
+
+	// Make form groups behave like rows
+	.d-form-group {
+		.d-grid > .make-row(@grid-gutter-width);
+	}
+
+	.d-form-control-static {
+		padding-top: (@input-padding-vertical + 1);
+	}
+
+	.d-label {
+		text-align: right;
+	}
+}

@@ -1,0 +1,20 @@
+
+// Tables for, you guessed it, tabular data
+// ----------------------------------------
+
+
+// Table cell sizing
+// Reset default table behavior
+table col[class*="col-"] {
+	float: none;
+	display: table-column;
+}
+table {
+	td,
+	th {
+		&[class*="col-"] {
+			float: none;
+			display: table-cell;
+		}
+	}
+}
