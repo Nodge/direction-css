@@ -12,25 +12,6 @@
 	text-indent: -9999em;
 }
 
-.d-retina(@path, @ext, @width: 0, @height: 0) {
-	background-image: url("@{path}.@{ext}");
-
-	@media
-	only screen and (-webkit-min-device-pixel-ratio: 2),
-	only screen and (   min--moz-device-pixel-ratio: 2),
-	only screen and (     -o-min-device-pixel-ratio: 2/1),
-	only screen and (        min-device-pixel-ratio: 2),
-	only screen and (                min-resolution: 192dpi),
-	only screen and (                min-resolution: 2dppx) {
-		background-image: url("@{path}@2x.@{ext}");
-		.size();
-	}
-
-	.size() when not (@width = 0), not (@height = 0) {
-		.background-size(@width @height);
-	}
-}
-
 // WebKit-style focus
 .d-tab-focus() {
 	// Default
