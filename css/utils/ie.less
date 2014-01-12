@@ -11,3 +11,8 @@
 .d-reset-filter() when (@use-IE-filters = 1) {
   	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
 }
+
+// Fixes z-index bug on empty elements in IE8+
+.d-zindex-bg-fix() {
+	background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
