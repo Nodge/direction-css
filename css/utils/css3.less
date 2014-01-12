@@ -40,9 +40,9 @@
 
 // Transformations
 .d-transform(@transform) {
-	-webkit-transform: rotate(@transform);
-	    -ms-transform: rotate(@transform); // IE9+
-	        transform: rotate(@transform);
+	-webkit-transform: @transform;
+	    -ms-transform: @transform; // IE9+
+	        transform: @transform;
 }
 
 .d-rotate(@degrees) {
