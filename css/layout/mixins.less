@@ -64,33 +64,49 @@
 		.col(1); // kickstart it
 	}
 
-	.calc(@index, @columns, @type) when (@type = width) and (@index > 0) {
-		.d-col-@{index} {
-			width: percentage((@index / @columns));
+	.calc(@index, @columns, @type) {
+		.fix() when (@type = width) and (@index > 0) {
+			.d-col-@{index} {
+				width: percentage((@index / @columns));
+			}
 		}
+		.fix();
 	}
-	.calc(@index, @columns, @type) when (@type = push) {
-		.d-col-push-@{index} {
-			left: percentage((@index / @columns));
+	.calc(@index, @columns, @type) {
+		.fix() when (@type = push) {
+			.d-col-push-@{index} {
+				left: percentage((@index / @columns));
+			}
 		}
+		.fix();
 	}
-	.calc(@index, @columns, @type) when (@type = pull) {
-		.d-col-pull-@{index} {
-			right: percentage((@index / @columns));
+	.calc(@index, @columns, @type) {
+		.fix() when (@type = pull) {
+			.d-col-pull-@{index} {
+				right: percentage((@index / @columns));
+			}
 		}
+		.fix();
 	}
-	.calc(@index, @columns, @type) when (@type = offset) {
-		.d-col-offset-@{index} {
-			margin-left: percentage((@index / @columns));
+	.calc(@index, @columns, @type) {
+		.fix() when (@type = offset) {
+			.d-col-offset-@{index} {
+				margin-left: percentage((@index / @columns));
+			}
 		}
+		.fix();
 	}
 
-	.make(@columns, @type, @float: 1) when (@float = 1) {
-		.loop(@index, @type) when (@index >= 0) {
-			.d-grid > .calc(@index, @columns, @type);
-			// next iteration
-			.loop((@index - 1), @type);
+	.make(@columns, @type, @float: 1) {
+		.fix() when (@float = 1) {
+			.loop(@index, @type) when (@index >= 0) {
+				.d-grid > .calc(@index, @columns, @type);
+				// next iteration
+				.loop((@index - 1), @type);
+			}
+
+			.loop(@columns, @type);
 		}
-		.loop(@columns, @type);
+		.fix();
 	}
 }
