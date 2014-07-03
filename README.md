@@ -12,7 +12,7 @@ About this framework in a nutshell:
 * Included reset.css based on normalize.css implementation
 
 
-# Usage
+## Usage
 
 1. Copy the `style.example.less` and `config.example.less` to your css directory (remove `.example` suffix).
 2. Include 'style.less` to your pages.
@@ -20,15 +20,15 @@ About this framework in a nutshell:
 4. Include own less/css files in `style.less`.
 
 
-# Framework classes (most of all)
+## Framework classes (most of all)
 
-## Common
+### Common
 
 * `.d-left` - Align content to left (including images)
 * `.d-right` - Align content to right (including images)
 * `.d-hide` - Alias for `display: none`
 
-## Typography
+### Typography
 
 * `.d-text` - Enable text styles for content inside the tag
 * `.d-h1` and mixin `.d-h1()` - Style any element as H1
@@ -47,7 +47,7 @@ About this framework in a nutshell:
 * `.d-table-striped` - Add background color to the table's odd/even rows
 * `.d-table-responsive` - Wrap the table to `div.d-table-responsive` to enable horizontal scrolling on small screens
 
-## Grid
+### Grid
 
 Direction CSS Framework provides 24-columns fluid grid.
 
@@ -58,7 +58,7 @@ Direction CSS Framework provides 24-columns fluid grid.
 * `.d-col-pull-{n}` - Add this class to create space between columns (where `n` from 1 to 24)
 * `.d-col-push-{n}` - Add this class to create space between columns (where `n` from 1 to 24)
 
-## Forms
+### Forms
 
 * `d-legend`
 * `d-label` - Add this class to style labels
@@ -77,7 +77,8 @@ Direction CSS Framework provides 24-columns fluid grid.
 * `d-form-inline`
 * `d-form-horizontal`
 
-## Buttons
+### Buttons
+
 * `d-btn`
 * `d-btn-disabled`
 * `d-btn-block`
@@ -90,9 +91,9 @@ Direction CSS Framework provides 24-columns fluid grid.
 * `d-btn-info`
 
 
-# Build-in mixins
+## Build-in mixins
 
-## Common
+### Common
 
 * `d-clearfix()`
 * `d-text-overflow()` - Shortcut for `text-overflow` property (with required styles)
@@ -100,7 +101,7 @@ Direction CSS Framework provides 24-columns fluid grid.
 * `d-tab-focus()`
 * `d-screen-reader()` - Only display content to screen readers
 
-## Css3
+### Css3
 
 * `d-border-radius(@radius)` - deprecated
 * `d-box-shadow(@shadow)`
@@ -128,7 +129,7 @@ Direction CSS Framework provides 24-columns fluid grid.
 * `d-opacity(@opacity)`
 * `d-placeholder(@color)` - Set placeholder color for inputs
 
-## Gradients
+### Gradients
 
 * `#d-gradient > .horizontal(@start-color, @end-color, @start-percent: 0%, @end-percent: 100%)`
 * `#d-gradient > .horizontal-three-colors(@start-color, @mid-color, @color-stop, @end-color)`
@@ -139,7 +140,7 @@ Direction CSS Framework provides 24-columns fluid grid.
 * `#d-gradient > .radial(@inner-color, @outer-color)`
 * `#d-gradient > .striped(@color: rgba(255,255,255,.15), @angle: 45deg)`
 
-## Typography
+### Typography
 
 * `d-h1()` - Style any element as H1
 * `d-h2()` - Style any element as H2
@@ -159,7 +160,7 @@ Direction CSS Framework provides 24-columns fluid grid.
 * `d-table-base > .striped()` - Add background color to the table's odd/even rows
 * `d-table-base > .hover()` - Add background color to the table's rows on hover
 
-## IE
+### IE
 
 * `d-filter(@filter)`
 * `d-ms-filter(@filter)`
