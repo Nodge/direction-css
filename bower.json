@@ -1,0 +1,20 @@
+{
+  "name": "direction-css",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Nodge/direction-css",
+  "authors": [
+    "Nodge <nodge@yandex.ru>"
+  ],
+  "description": "Lightweight CSS framework",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.1"
+  }
+}
