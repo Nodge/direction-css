@@ -33,8 +33,6 @@
 
 .d-transform-transition(@transition) {
 	-webkit-transition: -webkit-transform @transition;
-	   -moz-transition:    -moz-transform @transition;
-	     -o-transition:      -o-transform @transition;
 	        transition:         transform @transition;
 }
 
@@ -74,7 +72,7 @@
 
 .d-transform-origin(@origin) {
 	-webkit-transform-origin: @origin;
-	   -moz-transform-origin: @origin;
+	    -ms-transform-origin: @origin;
 	        transform-origin: @origin;
 }
 
@@ -87,12 +85,14 @@
 // Background clipping, deprecated
 // Heads up: FF 3.6 and under need "padding" instead of "padding-box"
 .d-background-clip(@clip) {
-	background-clip: @clip;
+	-webkit-background-clip: @clip;
+			background-clip: @clip;
 }
 
 // Background sizing, deprecated
 .d-background-size(@size) {
-	background-size: @size;
+	-webkit-background-size: @size;
+			background-size: @size;
 }
 
 // Box sizing
@@ -108,7 +108,6 @@
 	-webkit-user-select: @select;
        -moz-user-select: @select;
 	    -ms-user-select: @select; // IE10+
-         -o-user-select: @select;
             user-select: @select;
 }
 
