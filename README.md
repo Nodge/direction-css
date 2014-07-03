@@ -12,6 +12,19 @@ About this framework in a nutshell:
 * Included reset.css based on normalize.css implementation
 
 
+## Installation
+
+### Bower
+
+Just run `bower install --save direction-css` - that's all!
+
+### Manually
+
+1. Download latest version of Direction CSS [here](https://github.com/Nodge/direction-css/releases)
+2. Download latest version of Normalize.css [here](https://github.com/necolas/normalize.css/releases)
+3. Update the path to Normalize.css in `css/dependencies.less`
+
+
 ## Usage
 
 1. Copy the `style.example.less` and `config.example.less` to your css directory (remove `.example` suffix).

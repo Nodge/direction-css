@@ -3,3 +3,6 @@
 
 # Any incompleted and temporary files
 -*
+
+# Bower
+.bower.json
