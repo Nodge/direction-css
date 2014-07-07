@@ -1,6 +1,9 @@
 Direction CSS Framework Change Log
 ==================================
 
+### 1.0.3 (07.07.2014)
+* Fixed .d-before-list class
+
 ### 1.0.2 (04.07.2014)
 * Remove html5shiv from repo
 
