@@ -83,6 +83,7 @@ Direction CSS Framework provides 24-columns fluid grid.
 * `d-radio-inline`
 * `d-checkbox-inline`
 * `d-help-block`
+* `d-help-inline`
 * `d-form-warning`
 * `d-form-error`
 * `d-form-success`
