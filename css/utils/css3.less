@@ -82,6 +82,11 @@
             animation: @animation;
 }
 
+.d-animation-duration(@duration) {
+	-webkit-animation-duration: @duration;
+            animation-duration: @duration;
+}
+
 // Background clipping, deprecated
 // Heads up: FF 3.6 and under need "padding" instead of "padding-box"
 .d-background-clip(@clip) {
