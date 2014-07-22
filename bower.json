@@ -1,6 +1,7 @@
 {
   "name": "direction-css",
-  "version": "1.0.4",
+  "version": "1.0.5",
+  "main": "app/main/css/style.less"
   "homepage": "https://github.com/Nodge/direction-css",
   "authors": [
     "Nodge <nodge@yandex.ru>"
