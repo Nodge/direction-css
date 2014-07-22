@@ -1,6 +1,9 @@
 Direction CSS Framework Change Log
 ==================================
 
+### 1.0.5 (22.07.2014)
+* Added `.d-animation-duration()` helper
+
 ### 1.0.4 (14.07.2014)
 * Added `.d-help-inline` class
 
